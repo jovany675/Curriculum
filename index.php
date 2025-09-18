@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Currículum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+
+<?php
+// Datos del currículum
+$nombre = "Jesus Jovany Lovera Lopez";
+$ocupacion = "Desarrollador Web";
+$foto_perfil = "Imagen de WhatsApp 2025-09-17 a las 21.55.44_47e29ccd.jpg";
+$email = "jesus.lovera@email.com";
+$linkedin = "linkedin.com/in/jesus-lovera";
+$telefono = "712-328-3906";
+
+$resumen = "Soy un estudiante proactivo y apasionado de Ingeniería en Tecnologías de la Información e Innovación Digital, cursando el 4º cuatrimestre de la licenciatura. Cuento con una sólida base teórica y práctica en el desarrollo de software, adquirida tanto en mi formación universitaria como en mi carrera técnica en Informática. Mi experiencia incluye la creación de aplicaciones web con énfasis en el desarrollo full-stack, con conocimientos en lenguajes como PHP, JavaScript y HTML. Poseo habilidades para trabajar en el ciclo completo de desarrollo de software, desde la conceptualización y diseño hasta la implementación y optimización. Soy un aprendiz rápido y con gran capacidad de adaptación, siempre buscando aplicar nuevas tecnologías para resolver problemas y crear soluciones innovadoras. Mi objetivo es combinar mi formación académica con mi experiencia técnica para contribuir al crecimiento de equipos de desarrollo de alto rendimiento.";
+
+$experiencia = [
+    [
+        "puesto" => "Tecnico",
+        "empresa" => "Pc Express",
+        "periodo" => "2022-2023",
+        "descripcion" => "Me integré a un equipo de técnicos encargados de la instalación de programas en equipos de cómputo, así como de la reparación de estos mismos."
+    ],
+    [
+        "puesto" => "Técnico en Redes",
+        "empresa" => "Universidad Politécnica de Atlacomulco",
+        "periodo" => "2024-2025",
+        "descripcion" => "Participé en un curso de preparación para desarrollar conocimientos en redes, específicamente en software y elementos de Cisco."
+    ],
+    // Puedes eliminar o modificar esta entrada para que sea más coherente con tu línea de tiempo
+    // [
+    //     "puesto" => "Desarrollador Junior",
+    //     "empresa" => "Innovatech",
+    //     "periodo" => "2018 - 2020",
+    //     "descripcion" => "Colaboré en el desarrollo de interfaces de usuario y en la integración de APIs."
+    // ]
+];
+
+$educacion = [
+    [
+        "titulo" => "Licenciatura en Ingeniería en Tecnologías de la Información e Innovación Digital",
+        "institucion" => "Universidad Politécnica de Atlacomulco",
+        "periodo" => "2025 - Presente"
+    ],
+    [
+        "titulo" => "Técnico en Informática",
+        "institucion" => "CBT. Lic. Mario Colin Sanchez",
+        "periodo" => "2021-2024"
+    ]
+];
+
+$habilidades = [
+    "PHP",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Bootstrap",
+    "MySQL",
+    "Git",
+    "Laravel",
+    "APIs REST"
+];
+$habilidades_blandas = [
+    "Trabajo en equipo",
+    "Comunicación efectiva",
+    "Adaptabilidad",
+    "Resolución de problemas",
+    "Pensamiento crítico",
+    "Gestión del tiempo",
+    "Liderazgo",
+    "Empatía",
+    "Creatividad"
+];
+$proyectos = [
+    [
+        "nombre" => "Portafolio Personal",
+        "tecnologias" => "HTML, CSS, Bootstrap",
+        "descripcion" => "Creación de un sitio web para mostrar mis habilidades y proyectos personales.",
+        "enlace" => "https://jovany675.github.io/Proyecto1/"
+    ],
+    [
+        "nombre" => "Paguina Web Orientada a la Venta de Equipos de Computo",
+        "tecnologias" => "PHP, MySQL, HTML",
+        "descripcion" => "Desarrollo de una paguina web que pueda mostrar la informacion de diversos equipos de computo para poder llamar la atencion del cliente y vender estos mismos equipos.",
+        "enlace" => "https://jovany675.github.io/Proyecto1/"
+    ]
+];
+?>
+
+<div class="container bg-white p-4 rounded shadow">
+    <div class="text-center mb-4">
+        <img src="<?php echo $foto_perfil; ?>" alt="Foto de Perfil" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+    </div>
+
+    <h1 class="text-primary text-center"><?php echo $nombre; ?></h1>
+    <h2 class="fs-5 text-muted text-center"><?php echo $ocupacion; ?></h2>
+    <p class="text-center text-secondary">
+        <span><?php echo $telefono; ?></span> |
+        <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a> |
+        <a href="https://<?php echo $linkedin; ?>" target="_blank">LinkedIn</a>
+    </p>
+
+    <hr class="my-4">
+
+    <h3>Resumen</h3>
+    <p style="text-align: justify;"><?php echo $resumen; ?></p>
+    <hr class="my-4">
+
+    <h3>Experiencia Laboral</h3>
+    <?php foreach ($experiencia as $trabajo): ?>
+        <p>
+            <strong><?php echo $trabajo['puesto']; ?></strong> en <?php echo $trabajo['empresa']; ?> (<?php echo $trabajo['periodo']; ?>)<br>
+            <small><?php echo $trabajo['descripcion']; ?></small>
+        </p>
+    <?php endforeach; ?>
+    <hr class="my-4">
+
+    <h3>Educación</h3>
+    <?php foreach ($educacion as $estudio): ?>
+        <p>
+            <strong><?php echo $estudio['titulo']; ?></strong><br>
+            <?php echo $estudio['institucion']; ?> (<?php echo $estudio['periodo']; ?>)
+        </p>
+    <?php endforeach; ?>
+    <hr class="my-4">
+
+    <h3>Habilidades</h3>
+    <ul>
+        <?php foreach ($habilidades as $habilidad): ?>
+            <li><?php echo $habilidad; ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <hr class="my-4">
+    <h3>Habilidades Blandas</h3>
+    <ul>
+        <?php foreach ($habilidades_blandas as $habilidad_blanda): ?>
+            <li><?php echo $habilidad_blanda; ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <hr class="my-4">
+    <h3>Proyectos</h3>
+    <?php foreach ($proyectos as $proyecto): ?>
+    <p>
+        <strong><?php echo $proyecto['nombre']; ?></strong><br>
+        <small class="text-muted">Tecnologías: <?php echo $proyecto['tecnologias']; ?></small><br>
+        <?php echo $proyecto['descripcion']; ?><br>
+        <?php if (!empty($proyecto['enlace'])): ?>
+            <a href="<?php echo $proyecto['enlace']; ?>" target="_blank">Ver proyecto</a>
+        <?php endif; ?>
+    </p>
+    <?php endforeach; ?>
+</div>
+
+</body>
+</html>
